@@ -10,7 +10,13 @@ const app = express();
 // app.use(bodyParser.json());
 app.use(express.json({extended: false}));
 
-app.use(cors());
+app.use(cors(
+    {
+        origin:["https:/deploy-mern-1sh.vercel.app"],
+        methods:["POST","GET","UPDATE"],
+        credentials:true
+    }
+));
 dotenv.config();
 
 const PORT = process.env.PORT || 8000;
